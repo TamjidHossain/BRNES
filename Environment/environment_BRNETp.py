@@ -112,7 +112,7 @@ class Env:
         self.courierNumber = 1
 
         # initialize agents' position
-        with open("../Positions/fileOut/positions"+str(CriteriaVal)+"_BRNETp_G30A0", "rb") as Pp:   # Unpickling
+        with open("../Position/fileOut/positions"+str(CriteriaVal)+"_BRNETp_G30A0", "rb") as Pp:   # Unpickling
             position = pickle.load(Pp)
         aPosListTotal = position[countVal]
         if playMode['Agent'].lower() == 'random':
