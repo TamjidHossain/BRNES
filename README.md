@@ -6,7 +6,6 @@ This is the codification used in the AAMAS 2023 paper proposing BRNES framework 
 Paper bib entry:
 
 @inproceedings{Hossain2023,
-
 author = {Hossain, Md Tamjid and
 
 Hung La and
