@@ -21,7 +21,7 @@ This project was built on Python 3.9. All the experiements are executed in the P
 
 The folder **PP_environment** contains the Predetor-Prey environment (also called as a Pursuit domain) we used for experiements
 
-The folder **BRNES** contains our implementation of all algorithm and experiements
+The folder **Main** contains our implementation of all algorithm and experiements
 
 Finally, the folder **ProcessedFiles** contains already processed .pickle files for graph printing and data visulaization
 
