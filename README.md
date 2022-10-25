@@ -5,20 +5,14 @@ This is the codification used in the AAMAS 2023 paper proposing BRNES framework 
 
 Paper bib entry:
 
-@inproceedings{Hossain2023,__
-author = {Hossain, Md Tamjid and__
-Hung La and
-
-Shahriar Badsha},
-
-title = {{Byzantine Robust Neighbor Experience Sharing in Differentially Private Multiagent Reinforcement Learning}},
-
-booktitle = {Proceedings of the 22nd International Conference on Autonomous Agents and Multiagent Systems (AAMAS)},
-
-year = {2023},
-
-note = {Under review}
-
+@inproceedings{Hossain2023,<br />
+author = {Hossain, Md Tamjid and<br />
+Hung La and<br />
+Shahriar Badsha},<br />
+title = {{Byzantine Robust Neighbor Experience Sharing in Differentially Private Multiagent Reinforcement Learning}},<br />
+booktitle = {Proceedings of the 22nd International Conference on Autonomous Agents and Multiagent Systems (AAMAS)},<br />
+year = {2023},<br />
+note = {Under review}<br />
 }
 
 This project was built on Python 3.9. All the experiements are executed in the Predetor-Prey (PP) domain (https://www.ifaamas.org/Proceedings/aamas2017/pdfs/p1722.pdf), we included the version we used in the **PP_environment** folder (slightly different from the standard PP domain). For the graph generation code you will need to install Jupyter Notebook (http://jupyter.readthedocs.io/en/latest/install.html).
