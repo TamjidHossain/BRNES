@@ -37,7 +37,7 @@ flag = 0 # flag = 0, neighbor zone enabled and flag = 1, neighbor zone disabled
 noTarget = 1 # there is only one target
 noFreeway = 1 # there is only one freeway/resting area
 AttackerList = [random.sample(range(0,noAgentList[0]), math.ceil(noAgentList[0]*attackPercentage[0]/100))] # calculating attackers' list
-print("Attackers: ": AttackerList)
+print("Attackers: ", AttackerList)
 
  # reward and penalties
 actionReward = 0
