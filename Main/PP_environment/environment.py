@@ -101,7 +101,7 @@ class Env:
         self.actionCount = len(self.actions) # total action count
 
     # reset function    
-    def reset(self, playMode, noTarget, noAgent, noObs, noFreeway, gridHeight, gridWidth, epochVal, CriteriaVal, LoopVal, neighborWeights):
+    def reset(self, playMode, noTarget, noAgent, noObs, noFreeway, gridHeight, gridWidth, epochVal, CriteriaVal, LoopVal, neighborWeights, totalEpisode):
         # initializing lists and variables
         self.aPosList = []
         self.tPosList = []
@@ -115,7 +115,7 @@ class Env:
         # reset agents' position
         with open("../RandomPosition/C"+str(0)+ "_L"+str(LoopVal)+
               "_H"+str(gridHeight)+"_W"+str(gridHeight)+"_N"+str(noAgent)+
-              "_O"+str(noObs)+"_E"+str(epochVal)+"_Nw"+str(neighborWeights), "rb") as Pp:   # Unpickling
+              "_O"+str(noObs)+"_E"+str(totalEpisode)+"_Nw"+str(neighborWeights), "rb") as Pp:   # Unpickling
             position = pickle.load(Pp)
         aPosListTotal = position[LoopVal]
         if playMode['Agent'].lower() == 'random':
