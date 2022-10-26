@@ -113,7 +113,7 @@ class Env:
         self.courierNumber = 1
 
         # reset agents' position
-        with open("../Main/RandomPosition/C"+str(0)+ "_L"+str(LoopVal)+
+        with open("../RandomPosition/C"+str(0)+ "_L"+str(LoopVal)+
               "_H"+str(gridHeight)+"_W"+str(gridHeight)+"_N"+str(noAgent)+
               "_O"+str(noObs)+"_E"+str(epochVal)+"_Nw"+str(neighborWeights), "rb") as Pp:   # Unpickling
             position = pickle.load(Pp)
