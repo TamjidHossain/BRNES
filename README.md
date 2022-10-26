@@ -3,7 +3,7 @@
 This is the codification used in the AAMAS 2023 paper proposing BRNES framework as means of accelerating learning in Multiagent Systems composed of advisee and advisor agents. You are free to use all or part of the codes here presented for any purpose, provided that the paper is properly cited and the original authors properly credited. All the files here shared come with no warranties.
 
 
-This project was built on Python 3.8. All the experiments are executed in the Predator-Prey (PP) domain (https://www.ifaamas.org/Proceedings/aamas2017/pdfs/p1722.pdf), we included the version we used in the **PP_environment** folder (slightly different from the standard PP domain). For the graph generation code you will need to install Jupyter Notebook (http://jupyter.readthedocs.io/en/latest/install.html).
+This project was built on Python 3.8. All the experiments are executed in the Predator-Prey (PP) domain (https://www.ifaamas.org/Proceedings/aamas2017/pdfs/p1722.pdf), we included the version we used in the **Main/PP_environment** folder (slightly different from the standard PP domain). For the graph generation code you will need to install Jupyter Notebook (http://jupyter.readthedocs.io/en/latest/install.html).
 
 ## Files
 The folder **Main** contains our implementation of all algorithms and experiments
