@@ -8,12 +8,12 @@ import sys
 
 noTarget = 1 # target will always be one
 gridHeightList = [int(sys.argv[1])]
-gridWidthList = [int(sys.argv[2])]
-noAgentList = [int(sys.argv[3])]
-noObsList = [int(sys.argv[4])]
-eList = [int(sys.argv[5])]
-LoopVal = int(sys.argv[6]) # defines how many times the code will run
-neighborWeightsList = [float(sys.argv[7])]
+gridWidthList = [int(sys.argv[1])]
+noAgentList = [int(sys.argv[2])]
+noObsList = [int(sys.argv[3])]
+eList = [int(sys.argv[4])]
+LoopVal = int(sys.argv[5]) # defines how many times the code will run
+neighborWeightsList = [float(sys.argv[6])]
 
 print("C"+str(len(gridWidthList))+ "_L"+str(LoopVal)+
               "_H"+str(gridHeightList[0])+"_W"+str(gridWidthList[0])+"_N"+str(noAgentList[0])+
