@@ -30,7 +30,16 @@ eList = [int(sys.argv[4])]
 LoopVal = int(sys.argv[5]) # defines how many times the code will run
 neighborWeightsList = [float(sys.argv[6])]
 attackPercentage = [int(sys.argv[7])]
-playModeList = ['random']
+display = sys.argv[8]
+sleep = float(sys.argv[9])
+try:
+    mode = sys.argv[10]
+except:
+    mode = 'random'
+if mode.lower()=='random':
+    playModeList = {"Agent":'random', "Target":'static', "Obstacle":'random', "Freeway":'random'}
+else:
+    playModeList = {"Agent":'random', "Target":'static', "Obstacle":'static', "Freeway":'static'}
 flag = 0 # flag = 0, neighbor zone enabled and flag = 1, neighbor zone disabled
 
 noTarget = 1 # there is only one target
@@ -96,10 +105,7 @@ for CriteriaVal in range(len(gridWidthList)):
     for countVal in range(LoopVal):
         gridWidth = gridWidthList[CriteriaVal]#10
         gridHeight = gridHeightList[CriteriaVal]#10
-        playMode = {'Agent':'random', 
-                    'Target': 'static', 
-                    'Obstacle': playModeList[CriteriaVal],
-                    'Freeway': 'static'}
+        playMode = playModeList
         noAgent = noAgentList[CriteriaVal]
         noObs = noObsList[CriteriaVal]
         neighborWeights = neighborWeightsList[CriteriaVal]
@@ -178,14 +184,15 @@ for CriteriaVal in range(len(gridWidthList)):
         for i in range(totalEpisode):
             print("epoch #", i+1, "/", totalEpisode)
             tPosList, aPosList, stateList, rewardList, doneList, oPosList, fPosList, courierNumber = env.reset(playMode, noTarget, noAgent, noObs,
-                                                                       noFreeway, gridWidth, gridHeight, i, CriteriaVal,countVal,neighborWeights,totalEpisode)
+                                                                       noFreeway, gridWidth, gridHeight, i, CriteriaVal,countVal,neighborWeights,totalEpisode,LoopVal)
             rewards_current_episode =[0 for a in range(noAgent)]
             doneList = [[a,'False'] for a in range(noAgent)]
             
             # render environment at the begining of every episode
             print("--------------Episode: ", i, " started----------------\n")
-            env.render()
-            print("\n")
+            if display=='on':
+                env.render()
+                print("\n")
             
             steps = 0
             completedAgent = []
@@ -195,7 +202,7 @@ for CriteriaVal in range(len(gridWidthList)):
 #             while any('False' in sl for sl in doneList): # ends when all agents reach goal
 #             while not any('True' in sl for sl in doneList): # ends when any agent reaches goal
 
-                os.system('clear')
+                # os.system('clear')
                 actionList = []
                 if steps>(gridWidth*100):
                     break # break out of the episode if number of steps is too large to reach the goal.
@@ -348,6 +355,7 @@ for CriteriaVal in range(len(gridWidthList)):
             stepsList.append(steps)
             rewards_all_episodes.append(rewards_current_episode)
             print("\nDone in", steps, "steps".format(steps))
+            time.sleep(sleep)
 
         stepsListFinal.append(stepsList)
         stepsList = []
