@@ -66,7 +66,7 @@ for CriteriaVal in range(len(gridWidthList)):
     # H: Grid Height, W: Grid Width, N: number of agents, O: number of obstacles, E: Total Episode, Nw: Neighbor weights
     with open("./RandomPosition/C"+str(CriteriaVal)+ "_L"+str(LoopVal)+
               "_H"+str(height)+"_W"+str(width)+"_N"+str(Agent)+
-              "_O"+str(Obs)+"_E"+str(epoch), "wb") as Pp:   #Pickling
+              "_O"+str(Obs)+"_E"+str(epoch)+"_Nw"+str(neighborWeights), "wb") as Pp:   #Pickling
         pickle.dump(p, Pp)
         
 print("################# Random Initialization Done. #########################")
