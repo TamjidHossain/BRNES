@@ -101,7 +101,7 @@ class Env:
         self.actionCount = len(self.actions) # total action count
 
     # reset function    
-    def reset(self, playMode, noTarget, noAgent, noObs, noFreeway, gridHeight, gridHeight, epochVal, CriteriaVal, LoopVal, neighborWeights):
+    def reset(self, playMode, noTarget, noAgent, noObs, noFreeway, gridHeight, gridWidth, epochVal, CriteriaVal, LoopVal, neighborWeights):
         # initializing lists and variables
         self.aPosList = []
         self.tPosList = []
