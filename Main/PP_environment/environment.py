@@ -128,7 +128,7 @@ class Env:
                 self.rewardList.append(0)
 
 
-        # initialize targets' position
+        # reset targets' position
         self.tPosList = []
         if playMode['Target'].lower() == 'random':
             for t in range(noTarget):
@@ -142,7 +142,7 @@ class Env:
             for t in range(noTarget):
                 self.tPosList.append([self.height-1,self.width-1])
 
-        # initialize obstacles' position
+        # reset obstacles' position
         self.oPosList = []
         if playMode['Obstacle'].lower() == 'random':
             for o in range(noObs):
@@ -161,7 +161,7 @@ class Env:
             for o in range(noObs):
                 self.oPosList.append([0,0])
 
-        # initialize freeways' position
+        # reset freeways' position
         self.fPosList = []
         if playMode['Freeway'].lower() == 'random':
             for f in range(noFreeway):
