@@ -39,7 +39,7 @@ python DARL.py 15 10 3 2000 10 0.90 20 on 2 random  <br />
 python AdhocTD.py 15 10 3 2000 10 0.90 20 on 2 random  <br />
 
          
-However, it will take a very long time until the experiments are completed. It may be of interest running more than one algorithm at the same time if you have enough computing power. Also, note that, for each framework, if the agents do not attain goal within (GridSize*100) steps in a particular episode, the episode and environment will be reset to the next.
+However, it will take a very long time until the experiments are completed. It may be of interest to run more than one algorithm at the same time if you have enough computing power. Also, note that, for each framework, if the agents do not attain goal within (GridSize*100) steps in a particular episode, the episode and environment will be reset to the next.
 
 The file name associated with any experiment is appended into a log file (BRNES.txt) that resides inside "Main/OutputFile" directory.<br />
 The results (Steps to goal (SG), Time to goal (TG), Rewards, Convergence, Qtable) of any experiment are stored categorically by file name in "Main/SG", "Main/TG", "Main/Reward", "Main/Convergence", "Main/Qtable" respectively as a pickle file. Then, the respective pickle files can be used to reproduce the graphs.
