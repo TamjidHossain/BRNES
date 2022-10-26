@@ -4,26 +4,29 @@
 # import essential modules
 import numpy as np
 import pickle
+import sys
 
-noTarget = 1
+noTarget = 1 # target will always be one
+gridHeightList = [sys.argv[1]]
+gridWidthList = [sys.argv[2]]
+noAgentList = [sys.argv[3]]
+noObsList = [sys.argv[4]]
+eList = [sys.argv[5]]
+LoopVal = sys.argv[6] # defines how many times the code will run
+neighborWeightsList = [sys.argv[7]]
+
+# initializing the lists
 tPosList = []
-
-gridWidthList = [10]
-gridHeightList = [10]
-noAgentList = [10]
-noObsList = [2]
-eList = [1000]
-LoopVal = 1
-neighborWeightsList = [0.90]
-playModeList = ['random'] 
-
 aPosList = []
 aPosListTotal = []
 aPosListLoopTotal = []
 aPosListCriteriaTotal = []
+
+# finding out the target's position which is the last cell of the grid
 for t in range(noTarget):
     tPosList.append([(int(gridHeightList[0]/(t+1))-1), (int(gridWidthList[0]/(t+1))-1)])
 
+# main code
 for CriteriaVal in range(len(gridWidthList)):
     height = gridWidthList[CriteriaVal]
     width = gridHeightList[CriteriaVal]
@@ -49,15 +52,19 @@ for CriteriaVal in range(len(gridWidthList)):
                 aPosList.append([aPosX, aPosY])
             aPosListTotal.append(aPosList)
             aPosList =[]
-#             print(ep, aPosListTotal,"\n")
         aPosListLoopTotal.append(aPosListTotal)
         aPosListTotal=[]
         
     p = aPosListLoopTotal
-    with open("./fileOut/Last/positions"+str(CriteriaVal)+"_BRNETp_G10_10", "wb") as Pp:   #Pickling
+    
+    # saving the positions in a pickle file. C: number of different scenarios, L: number of times the code will run as a loop,
+    # H: Grid Height, W: Grid Width, N: number of agents, O: number of obstacles, E: Total Episode, Nw: Neighbor weights
+    with open("./RandomPosition/C"+str(CriteriaVal)+ "_L"+str(LoopVal)+
+              "_H"+str(height)+"_W"+str(width)+"_N"+str(Agent)+
+              "_O"+str(Obs)+"_E"+str(epoch)+"_Nw"+str(neighborWeights), "wb") as Pp:   #Pickling
         pickle.dump(p, Pp)
         
-print("################# Random Initialization Done #########################")
+print("################# Random Initialization Done. Please find the pickle file inside RandomPosition folder #########################")
 
 
 
