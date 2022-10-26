@@ -15,6 +15,10 @@ eList = [sys.argv[5]]
 LoopVal = sys.argv[6] # defines how many times the code will run
 neighborWeightsList = [sys.argv[7]]
 
+print("C"+str(len(gridWidthList))+ "_L"+str(LoopVal)+
+              "_H"+str(gridHeightList[0])+"_W"+str(gridWidthList[0])+"_N"+str(noAgentList[0])+
+              "_O"+str(noObsList[0])+"_E"+str(eList[0])+"_Nw"+str(neighborWeightsList[0])
+
 # initializing the lists
 tPosList = []
 aPosList = []
