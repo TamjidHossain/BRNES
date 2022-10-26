@@ -1,8 +1,9 @@
 # importing essential modules
 import numpy as np
 import pickle
-import math
 import random
+import math
+import sys
 
 class Env:
     def __init__(self, gridHeight, gridWidth, playMode, noTarget, noAgent, noObs, noFreeway):
@@ -100,7 +101,7 @@ class Env:
         self.actionCount = len(self.actions) # total action count
 
     # reset function    
-    def reset(self, playMode, noTarget, noAgent, noObs, noFreeway, gridWidth, gridHeight, epochVal, CriteriaVal,countVal):
+    def reset(self, playMode, noTarget, noAgent, noObs, noFreeway, gridHeight, gridHeight, epochVal, CriteriaVal, LoopVal, neighborWeights):
         # initializing lists and variables
         self.aPosList = []
         self.tPosList = []
@@ -112,9 +113,11 @@ class Env:
         self.courierNumber = 1
 
         # reset agents' position
-        with open("./fileOut/Last/positions"+str(CriteriaVal)+"_BRNETp_G10_10", "rb") as Pp:   # Unpickling
+        with open("../Main/RandomPosition/C"+str(0)+ "_L"+str(LoopVal)+
+              "_H"+str(gridHeight)+"_W"+str(gridHeight)+"_N"+str(noAgent)+
+              "_O"+str(noObs)+"_E"+str(epochVal)+"_Nw"+str(neighborWeights), "rb") as Pp:   # Unpickling
             position = pickle.load(Pp)
-        aPosListTotal = position[countVal]
+        aPosListTotal = position[LoopVal]
         if playMode['Agent'].lower() == 'random':
             self.aPosList = aPosListTotal[epochVal]
             
@@ -177,12 +180,6 @@ class Env:
             for f in range(noFreeway):
                 self.fPosList.append([0,0])
 
-        # self.state1 = self.width * self.aPosList[0][1] + self.aPosList[0][0]
-        # self.state2 = self.width * self.aPosList[1][1] + self.aPosList[1][0]
-        # self.done1 = 'False'
-        # self.done2 = 'False'
-        # self.reward1 = 0
-        # self.reward2 = 0
         return self.tPosList, self.aPosList, self.stateList, self.rewardList, self.doneList, self.oPosList, self.fPosList, self.courierNumber
         # return self.state1, self.reward1, self.done1
 
@@ -212,20 +209,6 @@ class Env:
                 oPosY = np.random.choice(self.sY)
                 self.oPosList.append([oPosX, oPosY])
                 
-#         if self.courierNumber != 0:
-#             self.fPosList = []
-#             for f in range(noFreeway):
-#                 fPosX = np.random.choice(self.sX)
-#                 fPosY = np.random.choice(self.sY)
-#                 if (([fPosX, fPosY] not in self.tPosList) and 
-#                     ([oPosX, oPosY] not in self.aPosList) and ([oPosX, oPosY] not in self.oPosList)):
-#                     self.fPosList.append([fPosX, fPosY])
-#                 else:
-#                     fPosX = np.random.choice(self.sX)
-#                     fPosY = np.random.choice(self.sY)
-#                     self.fPosList.append([fPosX, fPosY])
-#         else:
-#             self.fPosList = []
 
         if self.courierNumber!= 0:
             self.fPosList = self.fPosList
@@ -239,7 +222,6 @@ class Env:
                 if actionList[a] == 0: # left
                     if self.aPosList[a][0] > 0:
                         self.aPosList[a][0] = self.aPosList[a][0]-1
-#                         actionReward = emptycellReward # if falls into emptycell, reward = 1
                     elif (self.aPosList[a] in self.oPosList):
                         # self.aPosList[a][0] = self.aPosList[a][0]-1
                         actionReward = obsReward # if falls into obstacle, reward = -1.5
@@ -255,7 +237,6 @@ class Env:
                 if actionList[a] == 1: # right
                     if self.aPosList[a][0] < (self.width - 1):
                         self.aPosList[a][0] = self.aPosList[a][0]+1
-#                         actionReward = emptycellReward # if falls into emptycell, reward = 1
                     elif (self.aPosList[a] in self.oPosList):
                         # self.aPosList[a][0] = self.aPosList[a][0]+1
                         actionReward = obsReward # if falls into obstacle, reward = -1.5 
@@ -271,7 +252,6 @@ class Env:
                 if actionList[a] == 2: # up
                     if self.aPosList[a][1] > 0:
                         self.aPosList[a][1] = self.aPosList[a][1]-1
-#                         actionReward = emptycellReward # if falls into emptycell, reward = 1
                     elif (self.aPosList[a] in self.oPosList):
                         # self.aPosList[a][1] = self.aPosList[a][1]-1
                         actionReward = obsReward # if falls into obstacle, reward = -1.5 
@@ -298,7 +278,6 @@ class Env:
                         self.aPosList[a][1]
                         actionReward = hitwallReward # if hits a wall, reward = -0.5
 
-#                 if ((self.courierNumber == 0) and (self.aPosList[a] in self.tPosList)):
                 if (self.aPosList[a] in self.tPosList):
                     done = 'True'
                 else:
@@ -310,7 +289,6 @@ class Env:
                     reward = goalReward
                 else:
                     reward = actionReward
-#                 reward = 10 if done else actionReward
             else:
                 self.aPosList[a][0] = self.aPosList[a][0]
                 self.aPosList[a][1] = self.aPosList[a][1]
