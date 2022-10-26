@@ -29,6 +29,8 @@ First install python 3.8 from https://www.python.org/downloads/release/python-38
 Then open up your command terminal/prompt to run the follwoing commands sequentially
 1. python RandomInit.py G N O E L Nw Ap D S M   <br />
 2. python BRNES.py G N O E L Nw Ap D S M   <br />
+3. python DARL.py G N O E L Nw Ap D S M   <br />
+4. python AdhocTD.py G N O E L Nw Ap D S M   <br />
 
 where, <br />
 G: Grid Height and Width (N x N)<br />
