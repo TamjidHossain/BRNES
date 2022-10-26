@@ -179,7 +179,7 @@ for CriteriaVal in range(len(gridWidthList)):
         for i in range(epochs):
             print("epoch #", i+1, "/", epochs)
             tPosList, aPosList, stateList, rewardList, doneList, oPosList, fPosList, courierNumber = env.reset(playMode, noTarget, noAgent, noObs,
-                                                                       noFreeway, gridWidth, gridHeight, i, CriteriaVal,countVal)
+                                                                       noFreeway, gridWidth, gridHeight, i, CriteriaVal,countVal,neighborWeights)
             rewards_current_episode =[0 for a in range(noAgent)]
             doneList = [[a,'False'] for a in range(noAgent)]
             
