@@ -13,9 +13,6 @@ import time
 import math
 import os
 import copy
-import rdp_accountant
-from rdp_accountant import compute_rdp
-from rdp_accountant import get_privacy_spent
 from operator import add, sub, mul
 
 ## starting main program
