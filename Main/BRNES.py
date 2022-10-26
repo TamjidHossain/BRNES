@@ -130,7 +130,7 @@ for CriteriaVal in range(len(gridWidthList)):
             qtableList.append(np.random.rand(env.stateCount, env.actionCount).tolist())
 
         ## hyperparameters
-        epochs = eList[CriteriaVal]
+        totalEpisode = eList[CriteriaVal]
         gamma = 0.8 # discount factor
         epsilon = 0.08 #0.08 #exploration-exploitation
         intEpsilon = epsilon
@@ -175,10 +175,10 @@ for CriteriaVal in range(len(gridWidthList)):
             
             
         ## training loop
-        for i in range(epochs):
-            print("epoch #", i+1, "/", epochs)
+        for i in range(totalEpisode):
+            print("epoch #", i+1, "/", totalEpisode)
             tPosList, aPosList, stateList, rewardList, doneList, oPosList, fPosList, courierNumber = env.reset(playMode, noTarget, noAgent, noObs,
-                                                                       noFreeway, gridWidth, gridHeight, i, CriteriaVal,countVal,neighborWeights)
+                                                                       noFreeway, gridWidth, gridHeight, i, CriteriaVal,countVal,neighborWeights,totalEpisode)
             rewards_current_episode =[0 for a in range(noAgent)]
             doneList = [[a,'False'] for a in range(noAgent)]
             
@@ -389,7 +389,7 @@ for CriteriaVal in range(len(gridWidthList)):
         myfile.write("FileName: "+str(fileName)+" : BRNES, Time taken: "+str(total_time)+"\n | gridWidth: "+str(gridWidth)+" | gridHeight: "+str(gridHeight)+
                     " | playMode: "+str(playMode)+" | noTarget: "+str(noTarget)+" | noAgent: "+str(noAgent)+
                     " | noObs: "+str(noObs)+" | noFreeway: "+str(noFreeway)+
-                    " | neighborWeights: "+str(neighborWeights)+" | epochs: "+str(epochs)+" | gamma: "+str(gamma)+
+                    " | neighborWeights: "+str(neighborWeights)+" | totalEpisode: "+str(totalEpisode)+" | gamma: "+str(gamma)+
                     " | epsilon: "+str(intEpsilon)+" | decay: "+str(decay)+" | alpha: "+str(alpha)+
                     " | obsReward: "+str(obsReward)+" | freewayReward: "+str(freewayReward)+" | emptycellReward: "+str(emptycellReward)+
                     " | hitwallReward: "+str(hitwallReward)+" | Attacker: "+str(Attacker)+"\n\n\n")   
