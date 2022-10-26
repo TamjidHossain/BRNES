@@ -30,9 +30,17 @@ Then open up your command terminal/prompt to run the follwoing commands sequenti
 1. python RandomInit.py G N O E L Nw Ap D S M   <br />
 2. python BRNES.py G N O E L Nw Ap D S M   <br />
 
-where G: Grid Height and Width (N x N), N: number of agents, O: number of obstacles, E: Total Episode,<br />
-L: number of times the code will run as a loop, Nw: Neighbor weights [0,1], Ap: Attack Percentage [0,100],<br />
-D: Display environment [on, off], S: Sleep (sec), M: Play mode [random, static]<br />
+where <br />
+G: Grid Height and Width (N x N)<br />
+N: number of agents <br />
+O: number of obstacles <br />
+E: Total Episode <br />
+L: number of times the code will run as a loop <br />
+Nw: Neighbor weights [0,1] <br />
+Ap: Attack Percentage [0,100] <br />
+D: Display environment [on, off] <br />
+S: Sleep (sec) <br />
+M: Play mode [random, static]<br /><br />
 
 Example: python RandomInit.py 15 10 3 2000 10 0.90 20 on 2 random  <br />
          python BRNES.py 15 10 3 2000 10 0.90 20 on 2 random  <br />
