@@ -4,7 +4,6 @@ import sys
 import os
 from PP_environment.environment import Env
 from scipy.stats import truncnorm
-import matplotlib.pyplot as plt
 import pandas as pd
 import numpy as np
 import random
